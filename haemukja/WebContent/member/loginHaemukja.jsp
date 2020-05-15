@@ -56,7 +56,7 @@
                 <div class="form-group row">
                   <label for="userType" class="col-md-4 col-form-label text-md-right">회원구분</label>
                   <div class="col-md-6">
-                    <input type="radio" name="userType" value="member">해먹자 회원
+                    <input type="radio" name="userType" value="member" checked>해먹자 회원
 					<input type="radio" name="userType" value="seller">해먹샵 회원
                   </div>
                 <br><br>
@@ -85,9 +85,6 @@
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
-  	function login(){
-  		
-  	}
   </script>
 </body>
 
