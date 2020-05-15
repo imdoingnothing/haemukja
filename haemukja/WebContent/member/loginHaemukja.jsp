@@ -4,13 +4,11 @@
 <html lang="en">
 
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
-
-  <title>해먹자로그인</title>
+  <title>로그인 - 해먹자</title>
 
   <!-- Bootstrap core CSS -->
   <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +24,6 @@
 </head>
 
 <body>
-
   <main class="login-form">
     <div class="cotainer">
       <div class="row justify-content-center">
@@ -38,6 +35,7 @@
             </div>
 
             <div class="card-body">
+            	<!-- form -->
               <form action="<%=request.getContextPath()%>/login.me" method="post">
                 <div class="form-group row">
                   <label for="email_address" class="col-md-4 col-form-label text-md-right">아이디</label>
@@ -54,6 +52,14 @@
                     <input type="password" id="password" class="form-control" name="password" required>
                   </div>
                 </div> <!-- form-group row -->
+                
+                <div class="form-group row">
+                  <label for="userType" class="col-md-4 col-form-label text-md-right">회원구분</label>
+                  <div class="col-md-6">
+                    <input type="radio" name="userType" value="member" checked>해먹자 회원
+					<input type="radio" name="userType" value="seller">해먹샵 회원
+                  </div>
+                <br><br>
                 <div class="col-md-6 offset-md-4">
                   <button type="submit" class="btn btn-primary" style="background-color: orange; border: none;">
                     로그인
@@ -62,11 +68,12 @@
                     회원가입
                   </button>
                   <br><br>
-                  <a href="findId.html" class="btn btn-link">아이디를 잊으셨나요?</a>
+                  <a href="findId.jsp" class="btn btn-link">아이디를 잊으셨나요?</a>
                   <br>
-                  <a href="findPwd.html" class="btn btn-link">비밀번호를 잊으셨나요?</a>
+                  <a href="findPwd.jsp" class="btn btn-link">비밀번호를 잊으셨나요?</a>
                 </div> <!-- col-md-6 offset-md-4 -->
               </form>
+              <!-- /form -->
             </div> <!-- card-body -->
           </div> <!-- card -->
         </div> <!-- col-md-8 -->
@@ -78,9 +85,6 @@
   <script src="../vendor/jquery/jquery.min.js"></script>
   <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script>
-  	function login(){
-  		
-  	}
   </script>
 </body>
 
