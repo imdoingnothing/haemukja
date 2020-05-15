@@ -1,10 +1,13 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8" import="member.model.vo.Member"%>
+<%
+	Member loginMember = (Member)session.getAttribute("loginMember");
+%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -95,7 +98,7 @@
         <!-- /panel -->
         <div class="container">
           <div class="center-block">
-            <form id="productExplainForm">
+            <form id="productExplainForm" action="<%=request.getContextPath()%>/insert.re" method="post" enctype="multipart/form-data">
               <label for="title"><h5>제목 : </h5></label>
               <input type="text" name="title" style="width: 740px">
               <label for="thumbnail"><h5>썸네일 : </h5></label>
@@ -106,92 +109,92 @@
                 (태그 거는 법 : 해당 판매글 번호 입력)
               </h6>
               <h5>1.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image1" name="image1"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag1-1">
-                <input type="text" name="tag1-2">
-                <input type="text" name="tag1-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>2.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image2" name="image2"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag2-1">
-                <input type="text" name="tag2-2">
-                <input type="text" name="tag2-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>3.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image3" name="image3"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag3-1">
-                <input type="text" name="tag3-2">
-                <input type="text" name="tag3-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>4.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image4" name="image4"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag4-1">
-                <input type="text" name="tag4-2">
-                <input type="text" name="tag4-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>5.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image5" name="image5"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag5-1">
-                <input type="text" name="tag5-2">
-                <input type="text" name="tag5-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>6.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image6" name="image6"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag6-1">
-                <input type="text" name="tag6-2">
-                <input type="text" name="tag6-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>7.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image7" name="image7"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag7-1">
-                <input type="text" name="tag7-2">
-                <input type="text" name="tag7-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>8.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image8" name="image8"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag8-1">
-                <input type="text" name="tag8-2">
-                <input type="text" name="tag8-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>9.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image9" name="image9"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag9-1">
-                <input type="text" name="tag9-2">
-                <input type="text" name="tag9-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br>
               <h5>10.</h5>
-              <input type="file" name="file"><button type="button" class="tagBtn">태그달기</button>
+              <input type="file" id="image10" name="image10"><button type="button" class="tagBtn">태그달기</button>
               <div class="tag">
-                <input type="text" name="tag10-1">
-                <input type="text" name="tag10-2">
-                <input type="text" name="tag10-3">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
+                <input type="text" name="tag">
               </div>
               <textarea name="content" cols="110" rows="3"></textarea>
               <br><br><br>
@@ -202,7 +205,7 @@
       </div>
       <!-- /.col-lg-9 -->
       <div class="col-lg-1">
-        <div id="login">
+        <!-- <div id="login">
           <br>
           <i class="fas fa-user" style="font-size: 30px;"></i>
           <br><br>
@@ -210,7 +213,25 @@
           <a href="sellerpage_register.html" style="color: white; margin-bottom: 10px;">판매관리페이지</a>
           <br>
           <button type="button" id="loginBtn">로그아웃</button>
+        </div> -->
+        <%if(loginMember != null) { %>
+        <div id="login">
+          <br>
+          <i class="fas fa-user" style="font-size: 30px;"></i>
+          <br><br>
+          	<%=loginMember.getMnickname() %><br>반갑습니다!<br><br>
+          <a href="sellerpage_register.html" style="color: white; margin-bottom: 10px;">판매관리페이지</a>
+          <br>
+          <button type="button" id="loginBtn" onclick="logout();">로그아웃</button>
         </div>
+		<%} else { %>
+        <div id="login">
+          <br>
+          <i class="fas fa-user" style="font-size: 30px;"></i>
+          <br><br>
+          	<button onclick="login();">로그인</button>
+        </div>	
+        <%} %>
       </div>
     </div>
     <!-- /.row -->
@@ -232,8 +253,8 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../vendor/jquery/jquery.min.js"></script>
+  <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
   <script>
     $(function(){
@@ -241,8 +262,14 @@
         console.log($(this).next().toggle());
       });
     });
+    
+    function login(){
+  		location.href="<%=request.getContextPath()%>/member/loginHaemukja.jsp";
+  	}
+  	function logout(){
+  		location.href="<%=request.getContextPath()%>/logout.me";
+  	}
   </script>
 
 </body>
-
 </html>
