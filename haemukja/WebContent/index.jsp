@@ -1,8 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="member.model.vo.*"%>
 <%
-	Member loginMember = (Member)session.getAttribute("loginMember");
-	Seller loginSeller = (Seller)session.getAttribute("loginSeller");
+	Member loginMember = (Member)request.getAttribute("loginMember");
+	Seller loginSeller = (Seller)request.getAttribute("loginSeller");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -201,6 +201,9 @@
   	}
   	function logout(){
   		location.href="<%=request.getContextPath()%>/logout.me";
+  	}
+  	function memberJoin(){
+  		
   	}
   </script>
 </body>
