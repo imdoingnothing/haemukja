@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import member.model.service.MemberService;
 import member.model.vo.Member;
+import member.model.vo.Seller;
 
 
 @WebServlet("/login.me")
@@ -20,17 +21,32 @@ public class LoginServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("password");
-		Member member = new Member(id, pw);
-		Member loginMember = new MemberService().loginMember(member);
+		String userType = request.getParameter("userType");
 		
 		RequestDispatcher view = null;
-		if(loginMember != null) {
-			request.setAttribute("loginMember", loginMember);
-			view = request.getRequestDispatcher("index.jsp");
+		if(userType.equals("member")) {
+			Member member = new Member(id, pw);
+			Member loginMember = new MemberService().loginMember(member);			
+			
+			if(loginMember != null) {
+				request.setAttribute("loginMember", loginMember);
+				view = request.getRequestDispatcher("index.jsp");
+				view.forward(request, response);
+			} else {
+				//404
+			}
 		} else {
-			//실패, 일부러 404 error 뜨게 설정
+			Seller seller = new Seller(id, pw);
+			Seller loginSeller = new MemberService().loginSeller(seller);
+			
+			if(loginSeller != null) {
+				request.setAttribute("loginSeller", loginSeller);
+				view = request.getRequestDispatcher("index.jsp");
+				view.forward(request, response);
+			} else {
+				//404
+			}
 		}
-		view.forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
