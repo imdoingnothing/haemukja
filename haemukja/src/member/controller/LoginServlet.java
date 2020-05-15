@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import member.model.service.MemberService;
 import member.model.vo.Member;
@@ -22,14 +23,15 @@ public class LoginServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("password");
 		String userType = request.getParameter("userType");
-		
 		RequestDispatcher view = null;
+		HttpSession session = null;
 		if(userType.equals("member")) {
 			Member member = new Member(id, pw);
 			Member loginMember = new MemberService().loginMember(member);			
 			
 			if(loginMember != null) {
-				request.setAttribute("loginMember", loginMember);
+				session = request.getSession();
+				session.setAttribute("loginMember", loginMember);
 				view = request.getRequestDispatcher("index.jsp");
 				view.forward(request, response);
 			} else {
@@ -40,7 +42,8 @@ public class LoginServlet extends HttpServlet {
 			Seller loginSeller = new MemberService().loginSeller(seller);
 			
 			if(loginSeller != null) {
-				request.setAttribute("loginSeller", loginSeller);
+				session = request.getSession();
+				session.setAttribute("loginSeller", loginSeller);
 				view = request.getRequestDispatcher("index.jsp");
 				view.forward(request, response);
 			} else {
