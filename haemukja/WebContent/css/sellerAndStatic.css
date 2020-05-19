@@ -78,3 +78,7 @@ footer {
 .result{
   border-style: none;
 }
+.paging {
+	font-size: 20px;
+	background-color: orange;
+}

@@ -15,5 +15,5 @@
           <a href="#" class="list-group-item list-group-item-light">미국</a>
           <a href="#" class="list-group-item list-group-item-light">기타</a>
           <h4><a href="#">Other Countries</a></h4>
-          <h4><a href="<%=request.getContextPath()%>/qna/qnaboard.jsp">문의게시판</a></h4>
+          <h4><a href="<%=request.getContextPath()%>/qna.qn?currentPage=1">문의게시판</a></h4>
         </div>

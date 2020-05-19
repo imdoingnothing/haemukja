@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 		String id = request.getParameter("id");
 		String pw = request.getParameter("password");
 		String userType = request.getParameter("userType");
-		RequestDispatcher view = null;
+
 		HttpSession session = null;
 		if(userType.equals("member")) {
 			Member member = new Member(id, pw);
@@ -32,8 +32,7 @@ public class LoginServlet extends HttpServlet {
 			if(loginMember != null) {
 				session = request.getSession();
 				session.setAttribute("loginMember", loginMember);
-				view = request.getRequestDispatcher("index.jsp");
-				view.forward(request, response);
+				response.sendRedirect("index.jsp");
 			} else {
 				//404
 			}
@@ -44,8 +43,7 @@ public class LoginServlet extends HttpServlet {
 			if(loginSeller != null) {
 				session = request.getSession();
 				session.setAttribute("loginSeller", loginSeller);
-				view = request.getRequestDispatcher("index.jsp");
-				view.forward(request, response);
+				response.sendRedirect("index.jsp");			
 			} else {
 				//404
 			}
