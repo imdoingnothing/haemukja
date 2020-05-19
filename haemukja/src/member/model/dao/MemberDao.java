@@ -1,6 +1,5 @@
 package member.model.dao;
 
-import static common.JDBCTemplate.close;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +7,7 @@ import java.sql.ResultSet;
 
 import member.model.vo.Member;
 import member.model.vo.Seller;
+import static common.JDBCTemplate.*;
 
 public class MemberDao {
 
@@ -78,5 +78,7 @@ public class MemberDao {
 		
 		return loginSeller;
    }
+
+	
 
 }

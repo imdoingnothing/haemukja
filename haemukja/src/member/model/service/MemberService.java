@@ -9,6 +9,8 @@ import member.model.dao.MemberDao;
 import member.model.vo.Member;
 import member.model.vo.Seller;
 
+import static common.JDBCTemplate.*;
+
 public class MemberService {
 
 	public Member loginMember(Member member) {

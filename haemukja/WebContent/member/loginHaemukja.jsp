@@ -35,7 +35,8 @@
             </div>
 
             <div class="card-body">
-               <!-- form -->
+
+
               <form action="<%=request.getContextPath()%>/login.me" method="post">
                 <div class="form-group row">
                   <label for="email_address" class="col-md-4 col-form-label text-md-right">아이디</label>
@@ -57,7 +58,9 @@
                   <label for="userType" class="col-md-4 col-form-label text-md-right">회원구분</label>
                   <div class="col-md-6">
                     <input type="radio" name="userType" value="member" checked>해먹자 회원
+
                <input type="radio" name="userType" value="seller">해먹샵 회원
+
                   </div>
                 <br><br>
                 <div class="col-md-6 offset-md-4">
