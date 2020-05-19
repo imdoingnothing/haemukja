@@ -74,14 +74,10 @@ public class Seller implements Serializable {
 	public void setSout(String sout) {
 	    this.sout = sout;
 	}
-	public static long getSerialversionuid() {
-	    return serialVersionUID;
-	}
 	
 	@Override
 	public String toString() {
 	    return "Seller [sid=" + sid + ", spw=" + spw + ", company=" + company + ", stel=" + stel + ", caddr=" + caddr
 	            + ", cno=" + cno + ", sout=" + sout + "]";
 	}	
-
 }

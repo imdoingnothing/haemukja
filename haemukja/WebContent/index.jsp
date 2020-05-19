@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="member.model.vo.Member"%>
+    pageEncoding="UTF-8" import="member.model.vo.*"%>
 <%
 	Member loginMember = (Member)request.getAttribute("loginMember");
+	Seller loginSeller = (Seller)request.getAttribute("loginSeller");
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -154,7 +155,7 @@
       </div>
       <!-- /.col-lg-9 -->
       <div class="col-lg-1">
-      	<%if(loginMember != null) { %>
+      	<%if(loginMember != null && loginSeller == null) { %>
         <div id="login">
           <br>
           <i class="fas fa-user" style="font-size: 30px;"></i>
@@ -164,7 +165,17 @@
           <br>
           <button type="button" id="loginBtn" onclick="logout();">로그아웃</button>
         </div>
-		<%} else { %>
+        <%} else if (loginMember == null && loginSeller != null){ %>
+          <div id="login">
+          <br>
+          <i class="fas fa-user" style="font-size: 30px;"></i>
+          <br><br>
+          	<%=loginSeller.getCompany() %><br>반갑습니다!<br><br>
+          <a href="sellerpage_register.html" style="color: white; margin-bottom: 10px;">판매관리페이지</a>
+          <br>
+          <button type="button" id="loginBtn" onclick="logout();">로그아웃</button>
+        </div>
+		<%} else if (loginMember == null && loginSeller == null) { %>
         <div id="login">
           <br>
           <i class="fas fa-user" style="font-size: 30px;"></i>
