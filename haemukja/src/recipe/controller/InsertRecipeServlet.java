@@ -1,9 +1,11 @@
 package recipe.controller;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Enumeration;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,6 +39,9 @@ public class InsertRecipeServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		RecipeService rs = new RecipeService();
+		
 		int maxSize = 1024*1024*10;
 		
 		String root = request.getSession().getServletContext().getRealPath("/");
@@ -59,6 +64,8 @@ public class InsertRecipeServlet extends HttpServlet {
 		
 		String title = multiRequest.getParameter("title");
 		
+		String nCode = multiRequest.getParameter("nCode");
+		
 		String[] contentArr = multiRequest.getParameterValues("content");
 		String content = "";
 		for(int i = 0; i < contentArr.length; i++) {
@@ -73,12 +80,14 @@ public class InsertRecipeServlet extends HttpServlet {
 		
 		Recipe r = new Recipe();
 		r.setbTitle(title);
+		r.setnCode(nCode);
 		r.setbContent(content);
 		r.setmId(id);
 		
 		ArrayList<Attachment> fileList = new ArrayList<>();		
-		String[] tagArr = multiRequest.getParameterValues("tag");	// 30
-		System.out.println("tagArr의 크기 : " + tagArr.length);
+		
+		String[] tagArr = multiRequest.getParameterValues("tag");
+		
 		int start = 0;
 		for(int i = saveFiles.size()-1; i >= 0; i--) {
 			Attachment at = new Attachment();
@@ -108,7 +117,23 @@ public class InsertRecipeServlet extends HttpServlet {
 			fileList.add(at);
 		}
 		
-		int result = new RecipeService().insertRecipe(r,fileList);
+		int result = rs.insertRecipe(r,fileList);
+		int bNo = rs.selectBNo(r);
+		
+		RequestDispatcher view = null;
+		if(result > 0) {
+//			response.sendRedirect("detail.re");
+			view = request.getRequestDispatcher("/detail.re");
+			request.setAttribute("bNo", bNo);
+		} else {
+			for(int i = 0; i < saveFiles.size(); i++) {
+				// 서버에 저장된 이름(rename된 이름) 파일 객체 생성함
+				File failedFile = new File(savePath + saveFiles.get(i));
+				failedFile.delete();
+			}
+		}
+		
+		view.forward(request, response);
 	}
 
 	/**
