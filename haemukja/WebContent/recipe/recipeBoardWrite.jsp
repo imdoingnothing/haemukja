@@ -5,6 +5,7 @@
 	Seller loginSeller = (Seller)session.getAttribute("loginSeller");
 	String nCode = request.getParameter("nCode");
 %>
+<!--  -->
 <!DOCTYPE html>
 <html>
 <head>
